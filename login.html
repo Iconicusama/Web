@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class=" bg-[#F2F3F3]">
+    <section class="py-16">
+        <div class=" pt-10 bg-white mx-auto px-4 text-center">
+            <h2 class="text-3xl text-[#607d8b] font-bold mb-4">Sell your Car With 3 Easy & Simple Steps!</h2>
+            <p class="text-gray-700  ">It's free and takes less than a minute</p>
+        </div>
+        <div class="flex pb-10  place-content-center  bg-white">
+            <div class="flex items-center">
+                <img src="./1.svg" alt=""> <h5>Enter Your Car Information</h5>
+            </div>
+            <div class="flex items-center">
+                <img src="./2.svg" alt=""> <h5>Upload Photos</h5>
+            </div>
+            <div class="flex items-center">
+                <img src="./3.svg" alt=""> <h5>Enter Your Selling Price</h5>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="pt-16" >
+       <div class="container px-6 py-12 mx-auto bg-white">
+            <div class="formtitle">
+                <h3 class="font-semibold text-xl ">Car Information</h3>
+                <p>(All fields marked with * are mandatory)</p>
+            </div>
+
+            <div class="container px-6 py-12 mx-auto">
+                <div class="lg:flex lg:items-center lg:-mx-6">
+
+                    <div class="mt-8 lg:w-1/2 lg:mx-6">
+                                                   
+                        <form>
+                            <div class="flex justify-between items-center">
+                                <label for="">City *</label>
+                                <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-4/5 p-2.5 dark:placeholder-gray-400 dark:text-zinc-950 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <option selected>Select City</option>
+                                    <option value="Multan">Multan</option>
+                                    <option value="Lhore">Lahore</option>
+                                    <option value="Karachi">Karachi</option>
+                                    <option value="KPK">KPK</option>
+                                </select>
+                            </div>
+
+                            <div class="flex justify-between items-center">
+                                <label for="">Car Info*</label>
+                                <input type="email" placeholder="johndoe@example.com" class="block w-4/5 px-5 py-3 mt-2  placeholder-[#000] bg-white border border-gray-200 rounded-md   dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                            </div>
+                            
+                            <div class="flex justify-between items-center">
+                                <label for="">Registered In</label>
+                                <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-4/5 p-2.5 dark:placeholder-gray-400 dark:text-zinc-950 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <option selected>Registered In</option>
+                                    <option value="Multan">Multan</option>
+                                    <option value="Lhore">Lahore</option>
+                                    <option value="Karachi">Karachi</option>
+                                    <option value="KPK">KPK</option>
+                                </select>
+                            </div>
+
+                            <div class="flex justify-between items-center">
+                                <label for="">Exterior Color*</label>
+                                <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-4/5 p-2.5 dark:placeholder-gray-400 dark:text-zinc-950 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <option selected>Exterior Color</option>
+                                    <option value="red">red</option>
+                                    <option value="blue">Blue</option>
+                                    <option value="black">Black</option>
+                                    <option value="grey">Grey</option>
+                                    <option value="White">White</option>
+                                    <option value="Silver">Silver</option>
+                                    <option value="Gold">Gold</option>
+                                </select>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <label for="">Mileage * (km)</label>
+                                <input type="text" placeholder="(Km)" class="block w-4/5 px-5 py-3 mt-2  placeholder-[#000] bg-white border border-gray-200 rounded-md   dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <label for="">Price* (Rs.)</label>
+                                <input type="text" placeholder="(Price)" class="block w-4/5 px-5 py-3 mt-2  placeholder-[#000] bg-white border border-gray-200 rounded-md   dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                            </div>
+                        </form>
+                        <div class="flex justify-between items-center">
+                            <label class="block mb-2 text-sm text-zinc-950">Message</label>
+                            <textarea class="block w-4/5 h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-48 dark:placeholder-gray-600 dark:text-gray-950 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Message"></textarea>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 lg:mx-6">
+                        <div class="flex items-center">
+                            <img src="./4.svg" alt=""> <h5>We don't allow duplicates of same ad.</h5>
+                        </div>
+                        <div class="flex items-center">
+                            <img src="./4.svg" alt=""> <h5>We don't allow promotional messages that are not relevant to the ad </h5>
+                        </div>
+                        <div class="flex items-center">
+                            <img src="./4.svg" alt=""> <h5>Please enter a realistic price to get more genuine responses.</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="pt-16" >
+        <div class="container  px-6 py-12 mx-auto bg-white">
+             <div class="formtitle">
+                 <h3 class="font-semibold text-xl ">Upload Photos</h3>
+             </div>
+ 
+             <div class="container px-6 py-12 mx-auto">
+                 <div class="lg:flex lg:items-center lg:-mx-6">     
+                    <div class="flex items-center justify-center w-full">
+                        <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50   hover:bg-gray-100 ">
+                            <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+                                </svg>
+                                <p class="mb-2 text-sm text-zinc-950 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+                                <p class="text-xs text-zinc-950 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                                <!--<div class="flex container">
+                                    <div class="text-sm	">Adding at least 8 pictures improves the chances for a quick sale.</div>
+                                    <div class="text-sm	">Adding clear Front, Back and Interior pictures of your car increases the quality of your Ad and gets you noticed more.</div>
+                                </div>-->
+                            </div>
+                            <input id="dropzone-file" type="file" class="hidden" />
+                        </label>
+                    </div> 
+                 </div>
+             </div>
+         </div>
+     </section>
+
+     <section class="pt-16" >
+        <div class="container  px-6 py-12 mx-auto bg-white">
+             <div class="formtitle">
+                 <h3 class="font-semibold text-xl ">Contact Information</h3>
+             </div>
+ 
+             <div class="container px-6 py-12 mx-auto lg:flex lg:items-center lg:-mx-6">
+                <div class="lg:w-1/2 lg:mx-6">
+                    <div class="flex justify-between items-center">
+                        <label for="">Mobile Number*</label>
+                        <input type="text" placeholder="Mobile Number" class="block w-3/5	 px-5 py-3 mt-2  placeholder-[#000] bg-white border border-gray-200 rounded-md   dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <label for="">Secondary Number (Optional)</label>
+                        <input type="text" placeholder="Secondary Number" class="block w-3/5	 px-5 py-3 mt-2  placeholder-[#000] bg-white border border-gray-200 rounded-md   dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                    </div>
+                </div>
+                <div class="lg:w-1/2 lg:mx-6">
+                    <div class="flex"> <img class="w-16	" src="./5.webp" alt=""> <p>Enter a genuine 11 digit mobile no. with format 03XXXXXXXXX. All inquires will come on this number.</p>
+                    </div>
+                </div>
+             </div>
+         </div>
+     </section>
+</body>
+</html>
