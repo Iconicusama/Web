@@ -53,7 +53,67 @@
 
                             <div class="flex justify-between items-center">
                                 <label for="">Car Info*</label>
-                                <input type="email" placeholder="johndoe@example.com" class="block w-4/5 px-5 py-3 mt-2  placeholder-[#000] bg-white border border-gray-200 rounded-md   dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                                <div class="items-center">
+                                    <input type="text" placeholder="(Km)" class="block w-full px-5 py-3 mt-2  placeholder-[#000] bg-white border border-gray-200 rounded-md   dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"onclick="openModal('modelConfirm')" />
+                                </div>
+                                 <div id="modelConfirm" class="fixed hidden z-50 inset-0 bg-gray-900 bg-opacity-60 overflow-y-auto h-full w-full px-4 ">
+                                     <div class="relative top-40 mx-auto shadow-xl rounded-md bg-white max-w-md">
+                                 <!-- Popup Container -->
+                            <div class="bg-white shadow-lg rounded-lg p-4 w-full max-w-4xl">
+                                <div class="flex items-center border-b pb-2 mb-4">
+                                    <h2 class="text-xl font-semibold">Select Options</h2>
+                                </div>
+                                <div class="flex space-x-4">
+                                    <!-- Model Year Column -->
+                                    <div class="w-1/4">
+                                        <h3 class="text-lg font-medium mb-2">Model Year</h3>
+                                        <ul class="space-y-2" id="year-list overflow-y-scroll">
+                                            <li class="overflow-y-scroll"><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2024')">2024</button></li>
+                                            <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2023')">2023</button></li>
+                                            <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2022')">2022</button></li>
+                                            <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2021')">2021</button></li>
+                                            <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2020')">2020</button></li>
+                                            <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2019')">2019</button></li>
+                                            <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2018')">2018</button></li>
+                                            <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2017')">2017</button></li>
+                                            <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2016')">2016</button></li>
+                                            <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2015')">2015</button></li>
+                                            <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2014')">2014</button></li>
+                                            <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2013')">2013</button></li>
+                                        </ul>
+                                    </div>
+                                    <!-- Make Column -->
+                                    <div class="w-1/4">
+                                        <h3 class="text-lg font-medium mb-2">Make</h3>
+                                        <div id="make-list">
+                                            <!-- Placeholder for makes, dynamically generated -->
+                                        </div>
+                                    </div>
+                                    <!-- Model Column -->
+                                    <div class="w-1/4">
+                                        <h3 class="text-lg font-medium mb-2">Model</h3>
+                                        <div id="model-list">
+                                            <!-- Placeholder for models, dynamically generated -->
+                                        </div>
+                                    </div>
+                                    <!-- Version Column (Optional) -->
+                                    <div class="w-1/4">
+                                        <h3 class="text-lg font-medium mb-2">Version (Optional)</h3>
+                                        <div id="version-list">
+                                            <!-- Placeholder for versions, dynamically generated -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-4 flex justify-end">
+                                    <button class="bg-blue-500 text-white px-4 py-2 rounded-lg">Done</button>
+                                </div>
+                            </div>
+
+
+
+                                 
+                                     </div>
+                                 </div>
                             </div>
                             
                             <div class="flex justify-between items-center">
@@ -165,4 +225,129 @@
          </div>
      </section>
 </body>
+
+<script type="text/javascript">
+    window.openModal = function(modalId) {
+        document.getElementById(modalId).style.display = 'block'
+        document.getElementsByTagName('body')[0].classList.add('overflow-y-hidden')
+    }
+
+    window.closeModal = function(modalId) {
+        document.getElementById(modalId).style.display = 'none'
+        document.getElementsByTagName('body')[0].classList.remove('overflow-y-hidden')
+    }
+
+    // Close all modals when press ESC
+    document.onkeydown = function(event) {
+        event = event || window.event;
+        if (event.keyCode === 27) {
+            document.getElementsByTagName('body')[0].classList.remove('overflow-y-hidden')
+            let modals = document.getElementsByClassName('modal');
+            Array.prototype.slice.call(modals).forEach(i => {
+                i.style.display = 'none'
+            })
+        }
+    };
+</script>
+<script>
+    const data = {
+        '2024': {
+            makes: ['Toyota', 'Honda', 'Ford'],
+            models: {
+                'Toyota': ['Corolla', 'Camry', 'Prius'],
+                'Honda': ['Civic', 'Accord', 'Fit'],
+                'Ford': ['Focus', 'Mustang', 'Fusion']
+            }
+        },
+        '2023': {
+            makes: ['BMW', 'Audi', 'Mercedes'],
+            models: {
+                'BMW': ['X5', '3 Series', 'M4'],
+                'Audi': ['A4', 'Q5', 'R8'],
+                'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+            }
+        },
+        '2022': {
+            makes: ['BMW', 'Audi', 'Mercedes'],
+            models: {
+                'BMW': ['X5', '3 Series', 'M4'],
+                'Audi': ['A4', 'Q5', 'R8'],
+                'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+            }
+        }
+        ,'2021': {
+            makes: ['BMW', 'Audi', 'Mercedes'],
+            models: {
+                'BMW': ['X5', '3 Series', 'M4'],
+                'Audi': ['A4', 'Q5', 'R8'],
+                'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+            }
+        }
+        ,'2020': {
+            makes: ['BMW', 'Audi', 'Mercedes'],
+            models: {
+                'BMW': ['X5', '3 Series', 'M4'],
+                'Audi': ['A4', 'Q5', 'R8'],
+                'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+            }
+        }
+        ,'2019': {
+            makes: ['BMW', 'Audi', 'Mercedes'],
+            models: {
+                'BMW': ['X5', '3 Series', 'M4'],
+                'Audi': ['A4', 'Q5', 'R8'],
+                'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+            }
+        }
+        ,'2018': {
+            makes: ['BMW', 'Audi', 'Mercedes'],
+            models: {
+                'BMW': ['X5', '3 Series', 'M4'],
+                'Audi': ['A4', 'Q5', 'R8'],
+                'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+            }
+        } ,
+        '2017': {
+            makes: ['BMW', 'Audi', 'Mercedes'],
+            models: {
+                'BMW': ['X5', '3 Series', 'M4'],
+                'Audi': ['A4', 'Q5', 'R8'],
+                'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+            }
+        }
+        ,'2016': {
+            makes: ['BMW', 'Audi', 'Mercedes'],
+            models: {
+                'BMW': ['X5', '3 Series', 'M4'],
+                'Audi': ['A4', 'Q5', 'R8'],
+                'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+            }
+        }
+        ,'2015': {
+            makes: ['BMW', 'Audi', 'Mercedes'],
+            models: {
+                'BMW': ['X5', '3 Series', 'M4'],
+                'Audi': ['A4', 'Q5', 'R8'],
+                'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+            }
+        }
+        ,'2014': {
+            makes: ['BMW', 'Audi', 'Mercedes'],
+            models: {
+                'BMW': ['X5', '3 Series', 'M4'],
+                'Audi': ['A4', 'Q5', 'R8'],
+                'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+            }
+        }
+        ,'2013': {
+            makes: ['BMW', 'Audi', 'Mercedes'],
+            models: {
+                'BMW': ['X5', '3 Series', 'M4'],
+                'Audi': ['A4', 'Q5', 'R8'],
+                'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+            }
+        }
+        // Add more years and makes/models as needed
+    };
+    </script>
 </html>
