@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/dist/main.css" rel="stylesheet">
     <title>Document</title>
-
 </head>
 <body class=" bg-[#F2F3F3]">
     <a href="./index.html"></a>
@@ -221,189 +219,192 @@
              </div>
          </div>
      </section>
-</body>
 
-<script type="text/javascript">
-    window.openModal = function(modalId) {
-        document.getElementById(modalId).style.display = 'block'
-        document.getElementsByTagName('body')[0].classList.add('overflow-y-hidden')
-    }
 
-    window.closeModal = function(modalId) {
-        document.getElementById(modalId).style.display = 'none'
-        document.getElementsByTagName('body')[0].classList.remove('overflow-y-hidden')
-    }
 
-    // Close all modals when press ESC
-    document.onkeydown = function(event) {
-        event = event || window.event;
-        if (event.keyCode === 27) {
+
+     <script type="text/javascript">
+        window.openModal = function(modalId) {
+            document.getElementById(modalId).style.display = 'block'
+            document.getElementsByTagName('body')[0].classList.add('overflow-y-hidden')
+        }
+    
+        window.closeModal = function(modalId) {
+            document.getElementById(modalId).style.display = 'none'
             document.getElementsByTagName('body')[0].classList.remove('overflow-y-hidden')
-            let modals = document.getElementsByClassName('modal');
-            Array.prototype.slice.call(modals).forEach(i => {
-                i.style.display = 'none'
-            })
         }
-    };
-</script>
-<script>
-    const data = {
-        '2024': {
-            makes: ['Toyota', 'Honda', 'Ford'],
-            models: {
-                'Toyota': ['Corolla', 'Camry', 'Prius'],
-                'Honda': ['Civic', 'Accord', 'Fit'],
-                'Ford': ['Focus', 'Mustang', 'Fusion']
+    
+        // Close all modals when press ESC
+        document.onkeydown = function(event) {
+            event = event || window.event;
+            if (event.keyCode === 27) {
+                document.getElementsByTagName('body')[0].classList.remove('overflow-y-hidden')
+                let modals = document.getElementsByClassName('modal');
+                Array.prototype.slice.call(modals).forEach(i => {
+                    i.style.display = 'none'
+                })
             }
-        },
-        '2023': {
-            makes: ['BMW', 'Audi', 'Mercedes'],
-            models: {
-                'BMW': ['X5', '3 Series', 'M4'],
-                'Audi': ['A4', 'Q5', 'R8'],
-                'Mercedes': ['C-Class', 'E-Class', 'S-Class']
-            }
-        },
-        '2022': {
-            makes: ['BMW', 'Audi', 'Mercedes'],
-            models: {
-                'BMW': ['X5', '3 Series', 'M4'],
-                'Audi': ['A4', 'Q5', 'R8'],
-                'Mercedes': ['C-Class', 'E-Class', 'S-Class']
-            }
-        }
-        ,'2021': {
-            makes: ['BMW', 'Audi', 'Mercedes'],
-            models: {
-                'BMW': ['X5', '3 Series', 'M4'],
-                'Audi': ['A4', 'Q5', 'R8'],
-                'Mercedes': ['C-Class', 'E-Class', 'S-Class']
-            }
-        }
-        ,'2020': {
-            makes: ['BMW', 'Audi', 'Mercedes'],
-            models: {
-                'BMW': ['X5', '3 Series', 'M4'],
-                'Audi': ['A4', 'Q5', 'R8'],
-                'Mercedes': ['C-Class', 'E-Class', 'S-Class']
-            }
-        }
-        ,'2019': {
-            makes: ['BMW', 'Audi', 'Mercedes'],
-            models: {
-                'BMW': ['X5', '3 Series', 'M4'],
-                'Audi': ['A4', 'Q5', 'R8'],
-                'Mercedes': ['C-Class', 'E-Class', 'S-Class']
-            }
-        }
-        ,'2018': {
-            makes: ['BMW', 'Audi', 'Mercedes'],
-            models: {
-                'BMW': ['X5', '3 Series', 'M4'],
-                'Audi': ['A4', 'Q5', 'R8'],
-                'Mercedes': ['C-Class', 'E-Class', 'S-Class']
-            }
-        } ,
-        '2017': {
-            makes: ['BMW', 'Audi', 'Mercedes'],
-            models: {
-                'BMW': ['X5', '3 Series', 'M4'],
-                'Audi': ['A4', 'Q5', 'R8'],
-                'Mercedes': ['C-Class', 'E-Class', 'S-Class']
-            }
-        }
-        ,'2016': {
-            makes: ['BMW', 'Audi', 'Mercedes'],
-            models: {
-                'BMW': ['X5', '3 Series', 'M4'],
-                'Audi': ['A4', 'Q5', 'R8'],
-                'Mercedes': ['C-Class', 'E-Class', 'S-Class']
-            }
-        }
-        ,'2015': {
-            makes: ['BMW', 'Audi', 'Mercedes'],
-            models: {
-                'BMW': ['X5', '3 Series', 'M4'],
-                'Audi': ['A4', 'Q5', 'R8'],
-                'Mercedes': ['C-Class', 'E-Class', 'S-Class']
-            }
-        }
-        ,'2014': {
-            makes: ['BMW', 'Audi', 'Mercedes'],
-            models: {
-                'BMW': ['X5', '3 Series', 'M4'],
-                'Audi': ['A4', 'Q5', 'R8'],
-                'Mercedes': ['C-Class', 'E-Class', 'S-Class']
-            }
-        }
-        ,'2013': {
-            makes: ['BMW', 'Audi', 'Mercedes'],
-            models: {
-                'BMW': ['X5', '3 Series', 'M4'],
-                'Audi': ['A4', 'Q5', 'R8'],
-                'Mercedes': ['C-Class', 'E-Class', 'S-Class']
-            }
-        }
-        // Add more years and makes/models as needed
-    };
-    function selectYear(year) {
-        // Clear previous selections
-        document.getElementById('make-list').innerHTML = '';
-        document.getElementById('model-list').innerHTML = '';
-        document.getElementById('version-list').innerHTML = '';
-
-        // Populate makes based on selected year
-        if (data[year]) {
-            const makes = data[year].makes;
-            const makeList = document.getElementById('make-list');
-            makeList.innerHTML = '<h4 class="font-semibold mb-1">Popular</h4>';
-            makes.forEach(make => {
-                const button = document.createElement('button');
-                button.className = 'block w-full text-left hover:bg-gray-100 p-2 rounded';
-                button.innerText = make;
-                button.onclick = () => selectMake(year, make);
-                makeList.appendChild(button);
-            });
-        }
-    }
-
-    function selectMake(year, make) {
-        // Clear previous selections
-        document.getElementById('model-list').innerHTML = '';
-        document.getElementById('version-list').innerHTML = '';
-
-        // Populate models based on selected make
-        if (data[year] && data[year].models[make]) {
-            const models = data[year].models[make];
-            const modelList = document.getElementById('model-list');
-            modelList.innerHTML = '<h4 class="font-semibold mb-1">Popular</h4>';
-            models.forEach(model => {
-                const button = document.createElement('button');
-                button.className = 'block w-full text-left hover:bg-gray-100 p-2 rounded';
-                button.innerText = model;
-                button.onclick = () => selectModel(year, model);
-                modelList.appendChild(button);
-            });
-        }
-    }
-
-    function selectModel(year, model) {
-        // Clear previous selections
-        document.getElementById('version-list').innerHTML = '';
-
-        // Populate versions based on selected model
-        if (data[year] && data[year].versions[model]) {
-            const versions = data[year].versions[model];
-            const versionList = document.getElementById('version-list');
-            versionList.innerHTML = '<h4 class="font-semibold mb-1">Versions</h4>';
-            versions.forEach(version => {
-                const button = document.createElement('button');
-                button.className = 'block w-full text-left hover:bg-gray-100 p-2 rounded';
-                button.innerText = version;
-                versionList.appendChild(button);
-            });
-        }
-    }
+        };
     </script>
-        <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        const data = {
+            '2024': {
+                makes: ['Toyota', 'Honda', 'Ford'],
+                models: {
+                    'Toyota': ['Corolla', 'Camry', 'Prius'],
+                    'Honda': ['Civic', 'Accord', 'Fit'],
+                    'Ford': ['Focus', 'Mustang', 'Fusion']
+                }
+            },
+            '2023': {
+                makes: ['BMW', 'Audi', 'Mercedes'],
+                models: {
+                    'BMW': ['X5', '3 Series', 'M4'],
+                    'Audi': ['A4', 'Q5', 'R8'],
+                    'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+                }
+            },
+            '2022': {
+                makes: ['BMW', 'Audi', 'Mercedes'],
+                models: {
+                    'BMW': ['X5', '3 Series', 'M4'],
+                    'Audi': ['A4', 'Q5', 'R8'],
+                    'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+                }
+            }
+            ,'2021': {
+                makes: ['BMW', 'Audi', 'Mercedes'],
+                models: {
+                    'BMW': ['X5', '3 Series', 'M4'],
+                    'Audi': ['A4', 'Q5', 'R8'],
+                    'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+                }
+            }
+            ,'2020': {
+                makes: ['BMW', 'Audi', 'Mercedes'],
+                models: {
+                    'BMW': ['X5', '3 Series', 'M4'],
+                    'Audi': ['A4', 'Q5', 'R8'],
+                    'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+                }
+            }
+            ,'2019': {
+                makes: ['BMW', 'Audi', 'Mercedes'],
+                models: {
+                    'BMW': ['X5', '3 Series', 'M4'],
+                    'Audi': ['A4', 'Q5', 'R8'],
+                    'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+                }
+            }
+            ,'2018': {
+                makes: ['BMW', 'Audi', 'Mercedes'],
+                models: {
+                    'BMW': ['X5', '3 Series', 'M4'],
+                    'Audi': ['A4', 'Q5', 'R8'],
+                    'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+                }
+            } ,
+            '2017': {
+                makes: ['BMW', 'Audi', 'Mercedes'],
+                models: {
+                    'BMW': ['X5', '3 Series', 'M4'],
+                    'Audi': ['A4', 'Q5', 'R8'],
+                    'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+                }
+            }
+            ,'2016': {
+                makes: ['BMW', 'Audi', 'Mercedes'],
+                models: {
+                    'BMW': ['X5', '3 Series', 'M4'],
+                    'Audi': ['A4', 'Q5', 'R8'],
+                    'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+                }
+            }
+            ,'2015': {
+                makes: ['BMW', 'Audi', 'Mercedes'],
+                models: {
+                    'BMW': ['X5', '3 Series', 'M4'],
+                    'Audi': ['A4', 'Q5', 'R8'],
+                    'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+                }
+            }
+            ,'2014': {
+                makes: ['BMW', 'Audi', 'Mercedes'],
+                models: {
+                    'BMW': ['X5', '3 Series', 'M4'],
+                    'Audi': ['A4', 'Q5', 'R8'],
+                    'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+                }
+            }
+            ,'2013': {
+                makes: ['BMW', 'Audi', 'Mercedes'],
+                models: {
+                    'BMW': ['X5', '3 Series', 'M4'],
+                    'Audi': ['A4', 'Q5', 'R8'],
+                    'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+                }
+            }
+            // Add more years and makes/models as needed
+        };
+        function selectYear(year) {
+            // Clear previous selections
+            document.getElementById('make-list').innerHTML = '';
+            document.getElementById('model-list').innerHTML = '';
+            document.getElementById('version-list').innerHTML = '';
+    
+            // Populate makes based on selected year
+            if (data[year]) {
+                const makes = data[year].makes;
+                const makeList = document.getElementById('make-list');
+                makeList.innerHTML = '<h4 class="font-semibold mb-1">Popular</h4>';
+                makes.forEach(make => {
+                    const button = document.createElement('button');
+                    button.className = 'block w-full text-left hover:bg-gray-100 p-2 rounded';
+                    button.innerText = make;
+                    button.onclick = () => selectMake(year, make);
+                    makeList.appendChild(button);
+                });
+            }
+        }
+    
+        function selectMake(year, make) {
+            // Clear previous selections
+            document.getElementById('model-list').innerHTML = '';
+            document.getElementById('version-list').innerHTML = '';
+    
+            // Populate models based on selected make
+            if (data[year] && data[year].models[make]) {
+                const models = data[year].models[make];
+                const modelList = document.getElementById('model-list');
+                modelList.innerHTML = '<h4 class="font-semibold mb-1">Popular</h4>';
+                models.forEach(model => {
+                    const button = document.createElement('button');
+                    button.className = 'block w-full text-left hover:bg-gray-100 p-2 rounded';
+                    button.innerText = model;
+                    button.onclick = () => selectModel(year, model);
+                    modelList.appendChild(button);
+                });
+            }
+        }
+    
+        function selectModel(year, model) {
+            // Clear previous selections
+            document.getElementById('version-list').innerHTML = '';
+    
+            // Populate versions based on selected model
+            if (data[year] && data[year].versions[model]) {
+                const versions = data[year].versions[model];
+                const versionList = document.getElementById('version-list');
+                versionList.innerHTML = '<h4 class="font-semibold mb-1">Versions</h4>';
+                versions.forEach(version => {
+                    const button = document.createElement('button');
+                    button.className = 'block w-full text-left hover:bg-gray-100 p-2 rounded';
+                    button.innerText = version;
+                    versionList.appendChild(button);
+                });
+            }
+        }
+        </script>
+            <script src="https://cdn.tailwindcss.com"></script>
+</body>
 </html>
