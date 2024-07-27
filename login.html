@@ -67,18 +67,18 @@
                                                 <div class="w-1/4">
                                                     <h3 class="text-lg font-medium mb-2">Model Year</h3>
                                                     <ul class="space-y-2" id="year-list overflow-y-scroll">
-                                                        <li class="overflow-y-scroll"><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2024')">2024</button></li>
-                                                        <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2023')">2023</button></li>
-                                                        <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2022')">2022</button></li>
-                                                        <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2021')">2021</button></li>
-                                                        <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2020')">2020</button></li>
-                                                        <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2019')">2019</button></li>
-                                                        <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2018')">2018</button></li>
-                                                        <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2017')">2017</button></li>
-                                                        <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2016')">2016</button></li>
-                                                        <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2015')">2015</button></li>
-                                                        <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2014')">2014</button></li>
-                                                        <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2013')">2013</button></li>
+                                                        <li  class="overflow-y-scroll"><button type="button" class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2024')">2024</button></li>
+                                                        <li><button type="button" class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2023')">2023</button></li>
+                                                        <li><button type="button" class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2022')">2022</button></li>
+                                                        <li><button type="button" class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2021')">2021</button></li>
+                                                        <li><button type="button" class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2020')">2020</button></li>
+                                                        <li><button type="button" class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2019')">2019</button></li>
+                                                        <li><button type="button" class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2018')">2018</button></li>
+                                                        <li><button type="button" class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2017')">2017</button></li>
+                                                        <li><button type="button" class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2016')">2016</button></li>
+                                                        <li><button type="button" class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2015')">2015</button></li>
+                                                        <li><button type="button" class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2014')">2014</button></li>
+                                                        <li><button type="button" class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2013')">2013</button></li>
                                                     </ul>
                                                 </div>
                                                 <!-- Make Column -->
@@ -248,8 +248,9 @@
     </script>
     <script>
         const data = {
+            
             '2024': {
-                makes: ['Toyota', 'Honda', 'Ford'],
+                makes: [ 'Toyota', 'Honda', 'Ford'],
                 models: {
                     'Toyota': ['Corolla', 'Camry', 'Prius'],
                     'Honda': ['Civic', 'Accord', 'Fit'],
