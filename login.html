@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/dist/main.css" rel="stylesheet">
     <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
 <body class=" bg-[#F2F3F3]">
     <a href="./index.html"></a>
@@ -58,60 +59,56 @@
                                 </div>
                                  <div id="modelConfirm" class="fixed hidden z-50 inset-0 bg-gray-900 bg-opacity-60 overflow-y-auto h-full w-full px-4 ">
                                      <div class="relative top-40 mx-auto shadow-xl rounded-md bg-white max-w-md">
-                                 <!-- Popup Container -->
-                            <div class="bg-white shadow-lg rounded-lg p-4 w-full max-w-4xl">
-                                <div class="flex items-center border-b pb-2 mb-4">
-                                    <h2 class="text-xl font-semibold">Select Options</h2>
-                                </div>
-                                <div class="flex space-x-4">
-                                    <!-- Model Year Column -->
-                                    <div class="w-1/4">
-                                        <h3 class="text-lg font-medium mb-2">Model Year</h3>
-                                        <ul class="space-y-2" id="year-list overflow-y-scroll">
-                                            <li class="overflow-y-scroll"><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2024')">2024</button></li>
-                                            <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2023')">2023</button></li>
-                                            <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2022')">2022</button></li>
-                                            <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2021')">2021</button></li>
-                                            <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2020')">2020</button></li>
-                                            <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2019')">2019</button></li>
-                                            <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2018')">2018</button></li>
-                                            <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2017')">2017</button></li>
-                                            <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2016')">2016</button></li>
-                                            <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2015')">2015</button></li>
-                                            <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2014')">2014</button></li>
-                                            <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2013')">2013</button></li>
-                                        </ul>
-                                    </div>
-                                    <!-- Make Column -->
-                                    <div class="w-1/4">
-                                        <h3 class="text-lg font-medium mb-2">Make</h3>
-                                        <div id="make-list">
-                                            <!-- Placeholder for makes, dynamically generated -->
+                                            <!-- Popup Container -->
+                                        <div class="bg-white shadow-lg rounded-lg p-4 w-full max-w-4xl">
+                                            <div class="flex items-center border-b pb-2 mb-4">
+                                                <h2 class="text-xl font-semibold">Select Options</h2>
+                                            </div>
+                                            <div class="flex space-x-4">
+                                                <!-- Model Year Column -->
+                                                <div class="w-1/4">
+                                                    <h3 class="text-lg font-medium mb-2">Model Year</h3>
+                                                    <ul class="space-y-2" id="year-list overflow-y-scroll">
+                                                        <li class="overflow-y-scroll"><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2024')">2024</button></li>
+                                                        <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2023')">2023</button></li>
+                                                        <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2022')">2022</button></li>
+                                                        <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2021')">2021</button></li>
+                                                        <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2020')">2020</button></li>
+                                                        <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2019')">2019</button></li>
+                                                        <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2018')">2018</button></li>
+                                                        <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2017')">2017</button></li>
+                                                        <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2016')">2016</button></li>
+                                                        <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2015')">2015</button></li>
+                                                        <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2014')">2014</button></li>
+                                                        <li><button class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2013')">2013</button></li>
+                                                    </ul>
+                                                </div>
+                                                <!-- Make Column -->
+                                                <div class="w-1/4">
+                                                    <h3 class="text-lg font-medium mb-2">Make</h3>
+                                                    <div id="make-list">
+                                                        <!-- Placeholder for makes, dynamically generated -->
+                                                    </div>
+                                                </div>
+                                                <!-- Model Column -->
+                                                <div class="w-1/4">
+                                                    <h3 class="text-lg font-medium mb-2">Model</h3>
+                                                    <div id="model-list">
+                                                        <!-- Placeholder for models, dynamically generated -->
+                                                    </div>
+                                                </div>
+                                                <!-- Version Column (Optional) -->
+                                                <div class="w-1/4">
+                                                    <h3 class="text-lg font-medium mb-2">Version (Optional)</h3>
+                                                    <div id="version-list">
+                                                        <!-- Placeholder for versions, dynamically generated -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mt-4 flex justify-end">
+                                                <button class="bg-blue-500 text-white px-4 py-2 rounded-lg">Done</button>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <!-- Model Column -->
-                                    <div class="w-1/4">
-                                        <h3 class="text-lg font-medium mb-2">Model</h3>
-                                        <div id="model-list">
-                                            <!-- Placeholder for models, dynamically generated -->
-                                        </div>
-                                    </div>
-                                    <!-- Version Column (Optional) -->
-                                    <div class="w-1/4">
-                                        <h3 class="text-lg font-medium mb-2">Version (Optional)</h3>
-                                        <div id="version-list">
-                                            <!-- Placeholder for versions, dynamically generated -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mt-4 flex justify-end">
-                                    <button class="bg-blue-500 text-white px-4 py-2 rounded-lg">Done</button>
-                                </div>
-                            </div>
-
-
-
-                                 
                                      </div>
                                  </div>
                             </div>
@@ -349,5 +346,64 @@
         }
         // Add more years and makes/models as needed
     };
+    function selectYear(year) {
+        // Clear previous selections
+        document.getElementById('make-list').innerHTML = '';
+        document.getElementById('model-list').innerHTML = '';
+        document.getElementById('version-list').innerHTML = '';
+
+        // Populate makes based on selected year
+        if (data[year]) {
+            const makes = data[year].makes;
+            const makeList = document.getElementById('make-list');
+            makeList.innerHTML = '<h4 class="font-semibold mb-1">Popular</h4>';
+            makes.forEach(make => {
+                const button = document.createElement('button');
+                button.className = 'block w-full text-left hover:bg-gray-100 p-2 rounded';
+                button.innerText = make;
+                button.onclick = () => selectMake(year, make);
+                makeList.appendChild(button);
+            });
+        }
+    }
+
+    function selectMake(year, make) {
+        // Clear previous selections
+        document.getElementById('model-list').innerHTML = '';
+        document.getElementById('version-list').innerHTML = '';
+
+        // Populate models based on selected make
+        if (data[year] && data[year].models[make]) {
+            const models = data[year].models[make];
+            const modelList = document.getElementById('model-list');
+            modelList.innerHTML = '<h4 class="font-semibold mb-1">Popular</h4>';
+            models.forEach(model => {
+                const button = document.createElement('button');
+                button.className = 'block w-full text-left hover:bg-gray-100 p-2 rounded';
+                button.innerText = model;
+                button.onclick = () => selectModel(year, model);
+                modelList.appendChild(button);
+            });
+        }
+    }
+
+    function selectModel(year, model) {
+        // Clear previous selections
+        document.getElementById('version-list').innerHTML = '';
+
+        // Populate versions based on selected model
+        if (data[year] && data[year].versions[model]) {
+            const versions = data[year].versions[model];
+            const versionList = document.getElementById('version-list');
+            versionList.innerHTML = '<h4 class="font-semibold mb-1">Versions</h4>';
+            versions.forEach(version => {
+                const button = document.createElement('button');
+                button.className = 'block w-full text-left hover:bg-gray-100 p-2 rounded';
+                button.innerText = version;
+                versionList.appendChild(button);
+            });
+        }
+    }
     </script>
+        <script src="https://cdn.tailwindcss.com"></script>
 </html>
