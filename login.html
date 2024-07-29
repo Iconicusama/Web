@@ -52,21 +52,19 @@
 
                             <div class="flex justify-between items-center">
                                 <label for="">Car Info*</label>
-                                <div class="items-center">
-                                    <input type="text" placeholder="(Km)" class="block w-full px-5 py-3 mt-2  placeholder-[#000] bg-white border border-gray-200 rounded-md   dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"onclick="openModal('modelConfirm')" />
-                                </div>
-                                 <div id="modelConfirm" class="fixed hidden z-50 inset-0 bg-gray-900 bg-opacity-60 overflow-y-auto h-full w-full px-4 ">
+                                    <input type="text" placeholder="Make/Model/Version" class="block w-4/5 px-5 py-3 mt-2  placeholder-[#000] bg-white border border-gray-200 rounded-md   dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"onclick="openModal('modelConfirm')" />
+                                    <div id="modelConfirm" class="fixed hidden z-50 inset-0 bg-gray-900 bg-opacity-60 overflow-y-auto h-full w-full px-4 ">
                                      <div class="relative top-40 mx-auto shadow-xl rounded-md bg-white max-w-md">
                                             <!-- Popup Container -->
-                                        <div class="bg-white shadow-lg rounded-lg p-4 w-full max-w-4xl">
+                                        <div class="bg-white  shadow-lg rounded-lg p-4 w-[700px] max-w-4xl overflow-auto h-[350px]">
                                             <div class="flex items-center border-b pb-2 mb-4">
                                                 <h2 class="text-xl font-semibold">Select Options</h2>
                                             </div>
                                             <div class="flex space-x-4">
                                                 <!-- Model Year Column -->
-                                                <div class="w-1/4">
-                                                    <h3 class="text-lg font-medium mb-2">Model Year</h3>
-                                                    <ul class="space-y-2" id="year-list overflow-y-scroll">
+                                                <div class="w-1/4 ">
+                                                    <h3 class="text-base font-medium mb-2">Model Year</h3>
+                                                    <ul class="space-y-2" id="year-list overflow-y-scroll ">
                                                         <li  class="overflow-y-scroll"><button type="button" class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2024')">2024</button></li>
                                                         <li><button type="button" class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2023')">2023</button></li>
                                                         <li><button type="button" class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2022')">2022</button></li>
@@ -248,111 +246,250 @@
     </script>
     <script>
         const data = {
-            
             '2024': {
-                makes: [ 'Toyota', 'Honda', 'Ford'],
+                makes: ['Toyota', 'Honda', 'Ford'],
                 models: {
                     'Toyota': ['Corolla', 'Camry', 'Prius'],
                     'Honda': ['Civic', 'Accord', 'Fit'],
                     'Ford': ['Focus', 'Mustang', 'Fusion']
+                },
+                versions: {
+                    'Corolla': ['Hybrid W×B 2018 - 2024', 'Altis X CVT-i 1.8 2014 - 2024'],
+                    'Camry': ['LE', 'XLE', 'Hybrid'],
+                    'Prius': ['Standard', 'Prime'],
+                    'Civic': ['LX', 'EX', 'Sport'],
+                    'Accord': ['Hybrid', 'Touring'],
+                    'Fit': ['Base', 'Sport'],
+                    'Focus': ['S', 'SE', 'Titanium'],
+                    'Mustang': ['EcoBoost', 'GT', 'Shelby'],
+                    'Fusion': ['S', 'SE', 'Titanium']
                 }
             },
             '2023': {
+
                 makes: ['BMW', 'Audi', 'Mercedes'],
                 models: {
                     'BMW': ['X5', '3 Series', 'M4'],
                     'Audi': ['A4', 'Q5', 'R8'],
                     'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+                },
+                versions: {
+                    'X5': ['xDrive40i', 'M50i'],
+                    '3 Series': ['330i', 'M340i'],
+                    'M4': ['Base', 'Competition'],
+                    'A4': ['Premium', 'Premium Plus'],
+                    'Q5': ['Premium', 'Prestige'],
+                    'R8': ['V10', 'V10 Performance'],
+                    'C-Class': ['C300', 'C43'],
+                    'E-Class': ['E350', 'E450'],
+                    'S-Class': ['S500', 'S580']
                 }
             },
             '2022': {
+                makes: ['Toyota', 'Honda', 'Ford'],
+                models: {
+                    'Toyota': ['Corolla', 'Camry', 'Prius'],
+                    'Honda': ['Civic', 'Accord', 'Fit'],
+                    'Ford': ['Focus', 'Mustang', 'Fusion']
+                },
+                versions: {
+                    'Corolla': ['Hybrid W×B 2018 - 2024', 'Altis X CVT-i 1.8 2014 - 2024'],
+                    'Camry': ['LE', 'XLE', 'Hybrid'],
+                    'Prius': ['Standard', 'Prime'],
+                    'Civic': ['LX', 'EX', 'Sport'],
+                    'Accord': ['Hybrid', 'Touring'],
+                    'Fit': ['Base', 'Sport'],
+                    'Focus': ['S', 'SE', 'Titanium'],
+                    'Mustang': ['EcoBoost', 'GT', 'Shelby'],
+                    'Fusion': ['S', 'SE', 'Titanium']
+                }
+            },
+            '2021': {
+
                 makes: ['BMW', 'Audi', 'Mercedes'],
                 models: {
                     'BMW': ['X5', '3 Series', 'M4'],
                     'Audi': ['A4', 'Q5', 'R8'],
                     'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+                },
+                versions: {
+                    'X5': ['xDrive40i', 'M50i'],
+                    '3 Series': ['330i', 'M340i'],
+                    'M4': ['Base', 'Competition'],
+                    'A4': ['Premium', 'Premium Plus'],
+                    'Q5': ['Premium', 'Prestige'],
+                    'R8': ['V10', 'V10 Performance'],
+                    'C-Class': ['C300', 'C43'],
+                    'E-Class': ['E350', 'E450'],
+                    'S-Class': ['S500', 'S580']
                 }
-            }
-            ,'2021': {
+            },
+            '2020': {
+                makes: ['Toyota', 'Honda', 'Ford'],
+                models: {
+                    'Toyota': ['Corolla', 'Camry', 'Prius'],
+                    'Honda': ['Civic', 'Accord', 'Fit'],
+                    'Ford': ['Focus', 'Mustang', 'Fusion']
+                },
+                versions: {
+                    'Corolla': ['Hybrid W×B 2018 - 2024', 'Altis X CVT-i 1.8 2014 - 2024'],
+                    'Camry': ['LE', 'XLE', 'Hybrid'],
+                    'Prius': ['Standard', 'Prime'],
+                    'Civic': ['LX', 'EX', 'Sport'],
+                    'Accord': ['Hybrid', 'Touring'],
+                    'Fit': ['Base', 'Sport'],
+                    'Focus': ['S', 'SE', 'Titanium'],
+                    'Mustang': ['EcoBoost', 'GT', 'Shelby'],
+                    'Fusion': ['S', 'SE', 'Titanium']
+                }
+            },
+            '2019': {
+
                 makes: ['BMW', 'Audi', 'Mercedes'],
                 models: {
                     'BMW': ['X5', '3 Series', 'M4'],
                     'Audi': ['A4', 'Q5', 'R8'],
                     'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+                },
+                versions: {
+                    'X5': ['xDrive40i', 'M50i'],
+                    '3 Series': ['330i', 'M340i'],
+                    'M4': ['Base', 'Competition'],
+                    'A4': ['Premium', 'Premium Plus'],
+                    'Q5': ['Premium', 'Prestige'],
+                    'R8': ['V10', 'V10 Performance'],
+                    'C-Class': ['C300', 'C43'],
+                    'E-Class': ['E350', 'E450'],
+                    'S-Class': ['S500', 'S580']
                 }
-            }
-            ,'2020': {
-                makes: ['BMW', 'Audi', 'Mercedes'],
+            },
+            '2018': {
+                makes: ['Toyota', 'Honda', 'Ford'],
                 models: {
-                    'BMW': ['X5', '3 Series', 'M4'],
-                    'Audi': ['A4', 'Q5', 'R8'],
-                    'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+                    'Toyota': ['Corolla', 'Camry', 'Prius'],
+                    'Honda': ['Civic', 'Accord', 'Fit'],
+                    'Ford': ['Focus', 'Mustang', 'Fusion']
+                },
+                versions: {
+                    'Corolla': ['Hybrid W×B 2018 - 2024', 'Altis X CVT-i 1.8 2014 - 2024'],
+                    'Camry': ['LE', 'XLE', 'Hybrid'],
+                    'Prius': ['Standard', 'Prime'],
+                    'Civic': ['LX', 'EX', 'Sport'],
+                    'Accord': ['Hybrid', 'Touring'],
+                    'Fit': ['Base', 'Sport'],
+                    'Focus': ['S', 'SE', 'Titanium'],
+                    'Mustang': ['EcoBoost', 'GT', 'Shelby'],
+                    'Fusion': ['S', 'SE', 'Titanium']
                 }
-            }
-            ,'2019': {
-                makes: ['BMW', 'Audi', 'Mercedes'],
-                models: {
-                    'BMW': ['X5', '3 Series', 'M4'],
-                    'Audi': ['A4', 'Q5', 'R8'],
-                    'Mercedes': ['C-Class', 'E-Class', 'S-Class']
-                }
-            }
-            ,'2018': {
-                makes: ['BMW', 'Audi', 'Mercedes'],
-                models: {
-                    'BMW': ['X5', '3 Series', 'M4'],
-                    'Audi': ['A4', 'Q5', 'R8'],
-                    'Mercedes': ['C-Class', 'E-Class', 'S-Class']
-                }
-            } ,
+            },
             '2017': {
+
                 makes: ['BMW', 'Audi', 'Mercedes'],
                 models: {
                     'BMW': ['X5', '3 Series', 'M4'],
                     'Audi': ['A4', 'Q5', 'R8'],
                     'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+                },
+                versions: {
+                    'X5': ['xDrive40i', 'M50i'],
+                    '3 Series': ['330i', 'M340i'],
+                    'M4': ['Base', 'Competition'],
+                    'A4': ['Premium', 'Premium Plus'],
+                    'Q5': ['Premium', 'Prestige'],
+                    'R8': ['V10', 'V10 Performance'],
+                    'C-Class': ['C300', 'C43'],
+                    'E-Class': ['E350', 'E450'],
+                    'S-Class': ['S500', 'S580']
                 }
-            }
-            ,'2016': {
+            },
+            '2016': {
+                makes: ['Toyota', 'Honda', 'Ford'],
+                models: {
+                    'Toyota': ['Corolla', 'Camry', 'Prius'],
+                    'Honda': ['Civic', 'Accord', 'Fit'],
+                    'Ford': ['Focus', 'Mustang', 'Fusion']
+                },
+                versions: {
+                    'Corolla': ['Hybrid W×B 2018 - 2024', 'Altis X CVT-i 1.8 2014 - 2024'],
+                    'Camry': ['LE', 'XLE', 'Hybrid'],
+                    'Prius': ['Standard', 'Prime'],
+                    'Civic': ['LX', 'EX', 'Sport'],
+                    'Accord': ['Hybrid', 'Touring'],
+                    'Fit': ['Base', 'Sport'],
+                    'Focus': ['S', 'SE', 'Titanium'],
+                    'Mustang': ['EcoBoost', 'GT', 'Shelby'],
+                    'Fusion': ['S', 'SE', 'Titanium']
+                }
+            },
+            '2015': {
+
                 makes: ['BMW', 'Audi', 'Mercedes'],
                 models: {
                     'BMW': ['X5', '3 Series', 'M4'],
                     'Audi': ['A4', 'Q5', 'R8'],
                     'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+                },
+                versions: {
+                    'X5': ['xDrive40i', 'M50i'],
+                    '3 Series': ['330i', 'M340i'],
+                    'M4': ['Base', 'Competition'],
+                    'A4': ['Premium', 'Premium Plus'],
+                    'Q5': ['Premium', 'Prestige'],
+                    'R8': ['V10', 'V10 Performance'],
+                    'C-Class': ['C300', 'C43'],
+                    'E-Class': ['E350', 'E450'],
+                    'S-Class': ['S500', 'S580']
                 }
-            }
-            ,'2015': {
+            },
+            '2014': {
+                makes: ['Toyota', 'Honda', 'Ford'],
+                models: {
+                    'Toyota': ['Corolla', 'Camry', 'Prius'],
+                    'Honda': ['Civic', 'Accord', 'Fit'],
+                    'Ford': ['Focus', 'Mustang', 'Fusion']
+                },
+                versions: {
+                    'Corolla': ['Hybrid W×B 2018 - 2024', 'Altis X CVT-i 1.8 2014 - 2024'],
+                    'Camry': ['LE', 'XLE', 'Hybrid'],
+                    'Prius': ['Standard', 'Prime'],
+                    'Civic': ['LX', 'EX', 'Sport'],
+                    'Accord': ['Hybrid', 'Touring'],
+                    'Fit': ['Base', 'Sport'],
+                    'Focus': ['S', 'SE', 'Titanium'],
+                    'Mustang': ['EcoBoost', 'GT', 'Shelby'],
+                    'Fusion': ['S', 'SE', 'Titanium']
+                }
+            },
+            '2013': {
+
                 makes: ['BMW', 'Audi', 'Mercedes'],
                 models: {
                     'BMW': ['X5', '3 Series', 'M4'],
                     'Audi': ['A4', 'Q5', 'R8'],
                     'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+                },
+                versions: {
+                    'X5': ['xDrive40i', 'M50i'],
+                    '3 Series': ['330i', 'M340i'],
+                    'M4': ['Base', 'Competition'],
+                    'A4': ['Premium', 'Premium Plus'],
+                    'Q5': ['Premium', 'Prestige'],
+                    'R8': ['V10', 'V10 Performance'],
+                    'C-Class': ['C300', 'C43'],
+                    'E-Class': ['E350', 'E450'],
+                    'S-Class': ['S500', 'S580']
                 }
             }
-            ,'2014': {
-                makes: ['BMW', 'Audi', 'Mercedes'],
-                models: {
-                    'BMW': ['X5', '3 Series', 'M4'],
-                    'Audi': ['A4', 'Q5', 'R8'],
-                    'Mercedes': ['C-Class', 'E-Class', 'S-Class']
-                }
-            }
-            ,'2013': {
-                makes: ['BMW', 'Audi', 'Mercedes'],
-                models: {
-                    'BMW': ['X5', '3 Series', 'M4'],
-                    'Audi': ['A4', 'Q5', 'R8'],
-                    'Mercedes': ['C-Class', 'E-Class', 'S-Class']
-                }
-            }
+            
             // Add more years and makes/models as needed
         };
+
         function selectYear(year) {
             // Clear previous selections
             document.getElementById('make-list').innerHTML = '';
             document.getElementById('model-list').innerHTML = '';
             document.getElementById('version-list').innerHTML = '';
-    
+
             // Populate makes based on selected year
             if (data[year]) {
                 const makes = data[year].makes;
@@ -360,6 +497,7 @@
                 makeList.innerHTML = '<h4 class="font-semibold mb-1">Popular</h4>';
                 makes.forEach(make => {
                     const button = document.createElement('button');
+                    button.type = 'button';
                     button.className = 'block w-full text-left hover:bg-gray-100 p-2 rounded';
                     button.innerText = make;
                     button.onclick = () => selectMake(year, make);
@@ -367,12 +505,12 @@
                 });
             }
         }
-    
+
         function selectMake(year, make) {
             // Clear previous selections
             document.getElementById('model-list').innerHTML = '';
             document.getElementById('version-list').innerHTML = '';
-    
+
             // Populate models based on selected make
             if (data[year] && data[year].models[make]) {
                 const models = data[year].models[make];
@@ -380,6 +518,7 @@
                 modelList.innerHTML = '<h4 class="font-semibold mb-1">Popular</h4>';
                 models.forEach(model => {
                     const button = document.createElement('button');
+                    button.type = 'button';
                     button.className = 'block w-full text-left hover:bg-gray-100 p-2 rounded';
                     button.innerText = model;
                     button.onclick = () => selectModel(year, model);
@@ -387,11 +526,11 @@
                 });
             }
         }
-    
+
         function selectModel(year, model) {
             // Clear previous selections
             document.getElementById('version-list').innerHTML = '';
-    
+
             // Populate versions based on selected model
             if (data[year] && data[year].versions[model]) {
                 const versions = data[year].versions[model];
@@ -399,13 +538,14 @@
                 versionList.innerHTML = '<h4 class="font-semibold mb-1">Versions</h4>';
                 versions.forEach(version => {
                     const button = document.createElement('button');
+                    button.type = 'button';
                     button.className = 'block w-full text-left hover:bg-gray-100 p-2 rounded';
                     button.innerText = version;
                     versionList.appendChild(button);
                 });
             }
         }
-        </script>
+    </script>
             <script src="https://cdn.tailwindcss.com"></script>
 </body>
 </html>
