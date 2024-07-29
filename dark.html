@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Selection Popup</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .selected {
+            background-color: #E5F6FF;
+            border-left: 4px solid #007BFF;
+        }
+    </style>
+</head>
+<body class="bg-gray-200 flex items-center justify-center h-screen">
+    <div class="w-full max-w-4xl p-4">
+        <div class="mb-4">
+            <label for="car-info" class="block text-sm font-medium text-gray-700">Car Info</label>
+            <input id="car-info" name="car-info" type="text" readonly class="mt-1 block w-full rounded-md border-gray-300 shadow-sm sm:text-sm" placeholder="Make/Model/Version">
+        </div>
+        <!-- Open Popup Button -->
+        <button class="bg-blue-500 text-white px-4 py-2 rounded-lg" onclick="openPopup()">Select Car Info</button>
+    </div>
+
+    <!-- Popup Container -->
+    <div id="popup" class="bg-white shadow-lg rounded-lg p-4 w-full max-w-4xl hidden fixed inset-0 z-50">
+        <div class="flex items-center border-b pb-2 mb-4 justify-between">
+            <h2 class="text-xl font-semibold">Select Options</h2>
+            <button class="text-red-500" onclick="closePopup()">Close</button>
+        </div>
+        <div class="flex space-x-4">
+            <!-- Model Year Column -->
+            <div class="w-1/4">
+                <h3 class="text-lg font-medium mb-2">Model Year</h3>
+                <ul class="space-y-2" id="year-list">
+                    <li><button type="button" class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2024')">2024</button></li>
+                    <li><button type="button" class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2023')">2023</button></li>
+                    <li><button type="button" class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2022')">2022</button></li>
+                    <li><button type="button" class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2021')">2021</button></li>
+                    <li><button type="button" class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2020')">2020</button></li>
+                    <li><button type="button" class="block w-full text-left hover:bg-gray-100 p-2 rounded" onclick="selectYear('2019')">2019</button></li>
+                </ul>
+            </div>
+            <!-- Make Column -->
+            <div class="w-1/4">
+                <h3 class="text-lg font-medium mb-2">Make</h3>
+                <div id="make-list">
+                    <!-- Placeholder for makes, dynamically generated -->
+                </div>
+            </div>
+            <!-- Model Column -->
+            <div class="w-1/4">
+                <h3 class="text-lg font-medium mb-2">Model</h3>
+                <div id="model-list">
+                    <!-- Placeholder for models, dynamically generated -->
+                </div>
+            </div>
+            <!-- Version Column (Optional) -->
+            <div class="w-1/4">
+                <h3 class="text-lg font-medium mb-2">Version (Optional)</h3>
+                <div id="version-list">
+                    <!-- Placeholder for versions, dynamically generated -->
+                </div>
+            </div>
+        </div>
+        <div class="mt-4 flex justify-end">
+            <button type="button" class="bg-blue-500 text-white px-4 py-2 rounded-lg" onclick="submitCarInfo()">Done</button>
+        </div>
+    </div>
+
+    <script>
+        const data = {
+            '2024': {
+                makes: ['Toyota', 'Honda', 'Ford'],
+                models: {
+                    'Toyota': ['Corolla', 'Camry', 'Prius'],
+                    'Honda': ['Civic', 'Accord', 'Fit'],
+                    'Ford': ['Focus', 'Mustang', 'Fusion']
+                },
+                versions: {
+                    'Corolla': ['Hybrid W×B 2018 - 2024', 'Altis X CVT-i 1.8 2014 - 2024'],
+                    'Camry': ['LE', 'XLE', 'Hybrid'],
+                    'Prius': ['Standard', 'Prime'],
+                    'Civic': ['LX', 'EX', 'Sport'],
+                    'Accord': ['Hybrid', 'Touring'],
+                    'Fit': ['Base', 'Sport'],
+                    'Focus': ['S', 'SE', 'Titanium'],
+                    'Mustang': ['EcoBoost', 'GT', 'Shelby'],
+                    'Fusion': ['S', 'SE', 'Titanium']
+                }
+            },
+            '2023': {
+                makes: ['BMW', 'Audi', 'Mercedes'],
+                models: {
+                    'BMW': ['X5', '3 Series', 'M4'],
+                    'Audi': ['A4', 'Q5', 'R8'],
+                    'Mercedes': ['C-Class', 'E-Class', 'S-Class']
+                },
+                versions: {
+                    'X5': ['xDrive40i', 'M50i'],
+                    '3 Series': ['330i', 'M340i'],
+                    'M4': ['Base', 'Competition'],
+                    'A4': ['Premium', 'Premium Plus'],
+                    'Q5': ['Premium', 'Prestige'],
+                    'R8': ['V10', 'V10 Performance'],
+                    'C-Class': ['C300', 'C43'],
+                    'E-Class': ['E350', 'E450'],
+                    'S-Class': ['S500', 'S580']
+                }
+            }
+            // Add more years and makes/models as needed
+        };
+
+        let selectedYear = '';
+        let selectedMake = '';
+        let selectedModel = '';
+        let selectedVersion = '';
+
+        function openPopup() {
+            document.getElementById('popup').classList.remove('hidden');
+        }
+
+        function closePopup() {
+            document.getElementById('popup').classList.add('hidden');
+        }
+
+        function selectYear(year) {
+            selectedYear = year;
+            // Clear previous selections
+            document.getElementById('make-list').innerHTML = '';
+            document.getElementById('model-list').innerHTML = '';
+            document.getElementById('version-list').innerHTML = '';
+
+            // Populate makes based on selected year
+            if (data[year]) {
+                const makes = data[year].makes;
+                const makeList = document.getElementById('make-list');
+                makeList.innerHTML = '<h4 class="font-semibold mb-1">Popular</h4>';
+                makes.forEach(make => {
+                    const button = document.createElement('button');
+                    button.type = 'button';
+                    button.className = 'block w-full text-left hover:bg-gray-100 p-2 rounded';
+                    button.innerText = make;
+                    button.onclick = () => selectMake(year, make);
+                    makeList.appendChild(button);
+                });
+            }
+        }
+
+        function selectMake(year, make) {
+            selectedMake = make;
+            // Clear previous selections
+            document.getElementById('model-list').innerHTML = '';
+            document.getElementById('version-list').innerHTML = '';
+
+            // Populate models based on selected make
+            if (data[year] && data[year].models[make]) {
+                const models = data[year].models[make];
+                const modelList = document.getElementById('model-list');
+                modelList.innerHTML = '<h4 class="font-semibold mb-1">Popular</h4>';
+                models.forEach(model => {
+                    const button = document.createElement('button');
+                    button.type = 'button';
+                    button.className = 'block w-full text-left hover:bg-gray-100 p-2 rounded';
+                    button.innerText = model;
+                    button.onclick = () => selectModel(year, model);
+                    modelList.appendChild(button);
+                });
+            }
+        }
+
+        function selectModel(year, model) {
+            selectedModel = model;
+            // Clear previous selections
+            document.getElementById('version-list').innerHTML = '';
+
+            // Populate versions based on selected model
+            if (data[year] && data[year].versions[model]) {
+                const versions = data[year].versions[model];
+                const versionList = document.getElementById('version-list');
+                versionList.innerHTML = '<h4 class="font-semibold mb-1">Versions</h4>';
+                versions.forEach(version => {
+                    const button = document.createElement('button');
+                    button.type = 'button';
+                    button.className = 'block w-full text-left hover:bg-gray-100 p-2 rounded';
+                    button.innerText = version;
+                    button.onclick = () => selectVersion(version);
+                    versionList.appendChild(button);
+                });
+            }
+        }
+
+        function selectVersion(version) {
+            selectedVersion = version;
+        }
+
+        function submitCarInfo() {
+            const carInfoInput = document.getElementById('car-info');
+            carInfoInput.value = `${selectedYear} / ${selectedMake} / ${selectedModel} / ${selectedVersion}`;
+            closePopup();
+        }
+    </script>
+</body>
+</html>
